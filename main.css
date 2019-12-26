@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #16a086;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "arial";
+  overflow: hidden;
+}
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.about #us {
+  margin-top: -65px;
+  color: #ffffff;
+}
+.about .lorem {
+  color: #ffffff;
+  margin-top: 15px;
+}
+.block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 720px;
+  height: 419px;
+  cursor: pointer;
+}
+.block .person {
+  margin-right: 30px;
+  margin-top: 40px;
+  width: 221px;
+  height: 419px;
+  background: #ffffff;
+}
+.block .person .person_img {
+  width: 221px;
+}
+.block .person .person_item {
+  position: relative;
+  background: #16a08700;
+  height: 40px;
+  width: 150px;
+  margin: -300px auto;
+}
+.block .person .icon {
+  display: none;
+}
+.block .person .icon .icon img {
+  margin-left: 15px;
+}
+.block .person .person_item:hover > .icon {
+  display: block;
+  position: absolute;
+  height: 45px;
+  width: 140px;
+  background: #16a08690;
+}
+.block .name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.block .profeshional {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #444444;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.block .text {
+  padding-left: 10px;
+  width: 197px;
+  height: 94px;
+  color: #444444;
+  font-size: 13.5px;
+  margin: 15px 10px;
+}

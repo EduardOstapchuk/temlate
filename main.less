@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@bgk_home: #16a086;
+@family: "arial";
+
+.flex(@aling:center, @just:center) {
+  display: flex;
+  align-items: @aling;
+  justify-content: @just;
+}
+
+body {
+  background: @bgk_home;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  .flex(center, center);
+  font-family: @family;
+  overflow: hidden;
+}
+
+.about {
+  .flex(@aling:center, @just:center);
+  flex-direction: column;
+  #us {
+    margin-top: -65px;
+    color: #ffffff;
+  }
+  .lorem {
+    color: #ffffff;
+    margin-top: 15px;
+  }
+}
+
+.block {
+  .flex(@aling:center);
+  justify-content: space-between;
+  width: 720px;
+  height: 419px;
+  cursor: pointer;
+
+  .person {
+    margin-right: 30px;
+    margin-top: 40px;
+    width: 221px;
+    height: 419px;
+    background: #ffffff;
+
+    .person_img {
+      width: 221px;
+    }
+
+    .person_item {
+      position: relative;
+      background: #16a08700;
+      height: 40px;
+      width: 150px;
+      margin: -300px auto;
+    }
+    .icon {
+      display: none;
+
+      .icon img {
+        margin-left: 15px;
+      }
+    }
+
+    .person_item:hover > .icon {
+      display: block;
+      position: absolute;
+      height: 45px;
+      width: 140px;
+      background: #16a08690;
+    }
+  }
+
+  .name {
+    .flex(@aling:center);
+    color: #444444;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .profeshional {
+    .flex(@aling:center);
+    color: #444444;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .text {
+    padding-left: 10px;
+    width: 197px;
+    height: 94px;
+    color: #444444;
+    font-size: 13.5px;
+    margin: 15px 10px;
+  }
+}
