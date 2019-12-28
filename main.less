@@ -1,102 +1,157 @@
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
-@bgk_home: #16a086;
-@family: "arial";
+@bgColor:#16a086;
+@colorText: #FFFFFF;
+@bgBlock:#FFFFFF;
+@divText: #444444;
+@family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+.bodySize() {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
 
 .flex(@aling:center, @just:center) {
-  display: flex;
-  align-items: @aling;
-  justify-content: @just;
-}
-
-body {
-  background: @bgk_home;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  .flex(center, center);
-  font-family: @family;
-  overflow: hidden;
-}
-
-.about {
-  .flex(@aling:center, @just:center);
-  flex-direction: column;
-  #us {
-    margin-top: -65px;
-    color: #ffffff;
+    display: flex;
+    align-items: @aling;
+    justify-content: @just;
   }
-  .lorem {
-    color: #ffffff;
-    margin-top: 15px;
-  }
-}
+  
+  body {
+    .bodySize();
+    .flex(@aling:center, @just:center);
+    background: @bgColor;
+    flex-direction: column;
+        header {
+            .flex(@aling:center, @just:center);
+            flex-direction: column;
+            color: @colorText;
+            font-family: @family;
+                .header_text {
+                    padding: 10px;
+                    font-size: 25px;
+                }
+                .header_content {
+                    padding-bottom: 40px;
+                    font-size: 14px;
+                }
+                
+        }
 
-.block {
-  .flex(@aling:center);
-  justify-content: space-between;
-  width: 720px;
-  height: 419px;
-  cursor: pointer;
-
-  .person {
-    margin-right: 30px;
-    margin-top: 40px;
-    width: 221px;
-    height: 419px;
-    background: #ffffff;
-
-    .person_img {
-      width: 221px;
-    }
-
-    .person_item {
-      position: relative;
-      background: #16a08700;
-      height: 40px;
-      width: 150px;
-      margin: -300px auto;
-    }
-    .icon {
-      display: none;
-
-      .icon img {
-        margin-left: 15px;
-      }
-    }
-
-    .person_item:hover > .icon {
-      display: block;
-      position: absolute;
-      height: 45px;
-      width: 140px;
-      background: #16a08690;
-    }
-  }
-
-  .name {
-    .flex(@aling:center);
-    color: #444444;
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  .profeshional {
-    .flex(@aling:center);
-    color: #444444;
-    font-style: italic;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-
-  .text {
-    padding-left: 10px;
-    width: 197px;
-    height: 94px;
-    color: #444444;
-    font-size: 13.5px;
-    margin: 15px 10px;
-  }
-}
+        .wrap {
+            .flex(@aling:center);
+            justify-content: space-between;
+            width: 100%;
+            max-width: 730px;
+            height: 419px;
+            cursor: pointer;
+                .block {
+                   display: flex; 
+                   flex-direction: column;
+                   align-items: center;
+                   font-family: @family;
+                    max-width: 224px;
+                    height: 419px;
+                    width: 221px;
+                    background: @bgBlock;
+                    color: @divText;
+                    .person {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        &:hover {
+                            .icon {
+                            opacity: 1;
+                          }
+                        }
+                        .icon {
+                          align-items: center;
+                          justify-content: space-evenly;
+                          display: flex;
+                          width: 180px;
+                          height: 50px;
+                          background: #16a08685;
+                          position: absolute;
+                          opacity: 0;
+                          transition: opacity 0.8s ease-out;
+                          img {
+                            height: 25px;
+                            padding: 0 5px;
+                            &:hover {
+                              animation-duration: .5s;
+                              animation-name: icon;
+                            }
+                          }
+                        }
+                      }
+                
+                      .name {
+                        margin-top: 20px;
+                        font-size: 18px;
+                        font-weight: 500;
+                      }
+                
+                      .role {
+                        font-style: italic;
+                        font-size: 13px;
+                        margin: 6px 0 21px 0;
+                      }
+                      .text {
+                        text-align: left;
+                        margin: 0 10px;
+                        line-height: 20px;
+                        font-size: 15px;
+                      }
+                      display: flex;
+                      font-family: @family;
+                      flex-direction: column;
+                      width: 220px;
+                      height: 420px;
+                      align-items: center;
+                    }
+                  }
+                }
+                
+                @keyframes icon {
+                  from {
+                    transform: rotate(-20deg);
+                  }
+                  to {
+                    transform: rotate(20deg);
+                  }
+                }
+                
+                @media (min-width: 468px) and (max-width: 768px) {
+                  body {
+                    overflow-y: unset;
+                    .wrap {
+                      flex-wrap: wrap;
+                      width: 100%;
+                      max-width: 655px;
+                      justify-content: space-evenly;
+                    }
+                    .block:nth-child(3n) {
+                      margin-top: 100px;
+                      align-self: center;
+                    }
+                  }
+                }
+                
+                @media (max-width: 468px) {
+                  body {
+                    overflow-y: unset;
+                    .wrap {
+                      flex-direction: column;
+                      align-items: center;
+                    }
+                    .block {
+                      margin-bottom: 15px;
+                    }
+                  }
+                }
+                
